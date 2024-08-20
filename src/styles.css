@@ -1,0 +1,269 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(fonts/Roboto-Regular.woff);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+* {
+    font-family: "Roboto";
+    box-sizing: border-box;
+}
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    padding: 1rem;
+    background-color: whitesmoke;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 13%;
+}
+
+#logo img {
+    width: 4rem;
+    height: 4rem;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.project {
+    font-size: 2rem;
+    border-bottom: 1px solid grey;
+    padding: 1rem;
+}
+
+.project:hover {
+    cursor: pointer;
+    border-bottom: 3px solid black;
+    margin-bottom: -2px;
+}
+
+#add-project {
+    order: 1000000000;
+    border: none;
+    background-color: aqua;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 1px grey;
+}
+
+#add-project:hover {
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#content {
+    display: none;
+    flex-direction: column;
+    width: 87%;
+    padding: 1rem 2rem 0 2rem;
+    gap: 1rem;
+    overflow-y: auto;
+}
+
+#content>div {
+    width: 100%;
+    background-color: whitesmoke;
+    height: 15vh;
+    border-radius: 2rem;
+    box-shadow: 1px 1px 1px grey;
+    display: flex;
+    padding: 0.5rem 2rem;
+    gap: 2rem;
+}
+
+#add-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    color: grey;
+    order: 10000000;
+}
+
+#add-item:hover {
+    cursor: pointer;
+    color: black;
+    font-size: 8.5rem;
+}
+
+.done-checkbox {
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+    cursor: pointer;
+    accent-color: lime;
+}
+
+.item-content {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.item-opts {
+    display: flex;
+    margin-left: auto;
+    gap: 0.5rem;
+    align-self: flex-end;
+}
+
+.item-opts>img {
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.desc {
+    overflow-y: auto;
+}
+
+.delete-item,
+.delete-proj {
+    filter: brightness(0) saturate(100%) invert(21%) sepia(90%) saturate(5539%) hue-rotate(356deg) brightness(107%) contrast(130%);
+}
+
+.delete-item:hover,
+.delete-proj:hover {
+    filter: brightness(0) saturate(100%) invert(12%) sepia(93%) saturate(3159%) hue-rotate(350deg) brightness(111%) contrast(107%);
+}
+
+.fav,
+.edit-item,
+.edit-proj {
+    filter: brightness(0) saturate(100%) invert(37%) sepia(0%) saturate(0%) hue-rotate(194deg) brightness(88%) contrast(78%);
+}
+
+.fav:hover,
+.edit-item:hover,
+.edit-proj:hover {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(324deg) brightness(96%) contrast(104%);
+}
+
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#add-project-btn,
+#add-item-btn,
+#edit-project-btn,
+#edit-item-btn {
+    border: none;
+    color: white;
+    background-color: lime;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#add-project-btn:hover,
+#add-item-btn:hover,
+#edit-project-btn:hover,
+#edit-item-btn:hover {
+    background-color: limegreen;
+}
+
+#close-project,
+#close-item,
+#close-edit-project,
+#close-edit-item {
+    filter: brightness(0) saturate(100%) invert(37%) sepia(0%) saturate(0%) hue-rotate(194deg) brightness(88%) contrast(78%);
+}
+
+#close-project:hover,
+#close-item:hover,
+#close-edit-project:hover,
+#close-edit-item:hover {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(324deg) brightness(96%) contrast(104%);
+}
+
+#desc,
+#edit-desc {
+    height: 5rem;
+}
+
+dialog {
+    width: 20rem;
+}
+
+#content>#header {
+    background-color: white;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+}
+
+#curr-title {
+    font-size: 3rem;
+}
+
+.edit-proj,
+.delete-proj {
+    cursor: pointer;
+    width: 5rem;
+    height: 5rem;
+}
+
+.header-opts {
+    margin-left: auto;
+    display: flex;
+    gap: 2rem;
+}
+
+.fav-on {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(10%) saturate(5145%) hue-rotate(1deg) brightness(105%) contrast(107%);
+}
+
+.fav-on:hover {
+    filter: brightness(0) saturate(100%) invert(78%) sepia(87%) saturate(486%) hue-rotate(355deg) brightness(99%) contrast(94%);
+}
+
+.selected {
+    font-weight: bold;
+    border-bottom: 3px solid black;
+    margin-bottom: -2px;
+}

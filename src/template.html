@@ -4,11 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-Do List</title>
 </head>
 
 <body>
-
+    <div id="sidebar">
+        <div id="logo">
+            <img src="svg/clipboard-list-outline.svg" alt="To-Do Logo">
+            To-Do List
+        </div>
+        <button id="add-project">
+            Add Project
+        </button>
+    </div>
+    <div id="content">
+        <div id="header">
+            <h1 id="curr-title">Project 1</h1>
+            <div class="header-opts">
+                <img src="svg/pencil.svg" alt="Edit Icon" class="edit-proj">
+                <img src="svg/delete.svg" alt="Delete Icon" class="delete-proj">
+            </div>
+        </div>
+        <div id="add-item">
+            +
+        </div>
+        <div>
+            <input type="checkbox" class="done-checkbox">
+            <div class="item-content">
+                <div class="title">
+                    Todo 1
+                </div>
+                <div class="due-date">
+                    12/07/24 12:30
+                </div>
+                <div class="desc">
+                    Descriptionzzzadfs dasfjakls fkldasjlkf jasklfj klasjfkl ajsklfj aklsjfklasjkl fjaskljdfklf adhsjkfh
+                    asdjflkd sjlkfjkl asjfkljs lkfjkalsdjf kajskdlfjkl asdjklf ajsklfj klasdjfk lsjkl
+                    sajklfjklsa jkl ajsdfkjslkfj lslkfj kladsjfkl jdasklfkldasjklfj kasjfkjaslk fjldkjaflkasjlk
+                    sjfklasjkfjaksljfklasjklfjaslkfjklajflkajsklfjaslkjflkasjfklasjflkajsklfjkladsjkl jfskl
+                </div>
+            </div>
+            <div class="item-opts">
+                <img src="svg/star-outline.svg" alt="Favourite Icon" class="fav">
+                <img src="svg/pencil.svg" alt="Edit Icon" class="edit-item">
+                <img src="svg/delete.svg" alt="Delete Icon" class="delete-item">
+            </div>
+        </div>
+    </div>
+    <dialog id="add-project-modal">
+        <div class="modal-container">
+            <img src="svg/x-symbol.svg" alt="Cross Symbol" style="width:2rem; height:2rem; align-self: flex-end;"
+                id="close-project">
+            <label for="proj-title">Project Name:</label>
+            <input type="text" id="proj-title" required>
+            <button id="add-project-btn" type="submit"> Add Project</button>
+        </div>
+    </dialog>
+    <dialog id="add-item-modal">
+        <div class="modal-container">
+            <img src="svg/x-symbol.svg" alt="Cross Symbol" style="width:2rem; height:2rem; align-self: flex-end;"
+                id="close-item">
+            <label for="item-title">Title:</label>
+            <input type="text" id="item-title" required>
+            <label for="due-date">Due Date:</label>
+            <input type="date" id="due-date" required>
+            <label for="due-time">Due Time:</label>
+            <input type="time" id="due-time" required>
+            <label for="desc">Description:</label>
+            <textarea id="desc"></textarea>
+            <button id="add-item-btn" type="submit"> Add Item</button>
+        </div>
+    </dialog>
+    <dialog id="edit-project-modal">
+        <div class="modal-container">
+            <img src="svg/x-symbol.svg" alt="Cross Symbol" style="width:2rem; height:2rem; align-self: flex-end;"
+                id="close-edit-project">
+            <label for="edit-proj-title">Project Name:</label>
+            <input type="text" id="edit-proj-title" required>
+            <button id="edit-project-btn" type="submit">Save Changes</button>
+        </div>
+    </dialog>
+    <dialog id="edit-item-modal">
+        <div class="modal-container">
+            <img src="svg/x-symbol.svg" alt="Cross Symbol" style="width:2rem; height:2rem; align-self: flex-end;"
+                id="close-edit-item">
+            <label for="edit-item-title">Title:</label>
+            <input type="text" id="edit-item-title" required>
+            <label for="edit-due-date">Due Date:</label>
+            <input type="date" id="edit-due-date" required>
+            <label for="edit-due-time">Due Time:</label>
+            <input type="time" id="edit-due-time" required>
+            <label for="edit-desc">Description:</label>
+            <textarea id="edit-desc"></textarea>
+            <button id="edit-item-btn" type="submit">Save Changes</button>
+        </div>
+    </dialog>
 </body>
 
 </html>
