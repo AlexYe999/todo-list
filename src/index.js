@@ -1,5 +1,5 @@
 import "./styles.css"
-import { Item, Project, createProj, createItem } from "./funcs.js"
+import { createProj, createItem, toJSON, parseJSON } from "./funcs.js"
 import Icon1 from "./svg/star-outline.svg";
 import Icon2 from "./svg/pencil.svg";
 import Icon3 from "./svg/delete.svg";
@@ -150,7 +150,7 @@ function displayProj(project) {
             const newTime = document.querySelector("#due-time").value;
             const newDesc = document.querySelector("#desc").value;
             if (newTitle === "" || newDate === "" || newTime === "" || newDesc === "") return;
-            const newItem = createItem(newTitle, newDate, newTime, newDesc);
+            const newItem = createItem(newTitle, newDate, newTime, newDesc, false, false);
             project.addItems(newItem);
             displayItem(project, newItem);
             document.querySelector("#item-title").value = "";
@@ -178,6 +178,14 @@ function addProject(project) {
 }
 
 let id = 0;
+const storedData = localStorage.getItem("data");
+if (storedData) {
+    let newProjList = parseJSON(JSON.parse(storedData));
+    for (let i = 0; i < newProjList.length; i++) {
+        addProject(newProjList[i]);
+        id = Math.max(id, newProjList[i].id + 1);
+    }
+}
 
 const addProjBtn = document.querySelector("#add-project");
 
@@ -227,3 +235,7 @@ c4.onclick = () => {
     document.querySelector("#edit-desc").value = "";
     modal4.close();
 }
+
+setInterval(() => {
+    localStorage.setItem("data", toJSON(projList));
+}, 1000);
